@@ -44,12 +44,28 @@
                 <div aria-label="Dropdown header Action 4" clrDropdownItem>Issuer Region</div>
               </clr-dropdown-menu>
             </clr-dropdown> -->
-            <select clrSelect name="presetSelected" [(ngModel)]="presetSelected" (change)="setPresetValues()">
-              <option value="arrangerName">Arranger Name</option>
-              <option value="couponName">Coupon Type</option>
-              <option value="issuerName">Issuer Name</option>
-              <option value="issuerRegion">Issuer Region</option>
-            </select>
+            <clr-select-container>
+              <label for="presetSelected">Load a Preset</label>
+              <select clrSelect name="presetSelected" [(ngModel)]="presetSelected" (change)="setPresetValues()">
+                <!-- <option *ngFor="let preset of presets" [value]="preset.visibleName"></option> -->
+                <option value="Arranger Name" label="Arranger Name"></option>
+                <option value="Coupon Type" label="Coupon Type"></option>
+                <option value="Issuer Name" label="Issuer Name"></option>
+                <option value="Issuer Region" label="Issuer Region"></option>
+              </select>
+            </clr-select-container>
+            <!-- <clr-datalist-container>
+              <input
+                clrDatalistInput
+                [(ngModel)]="presetSelected"
+                placeholder="No label"
+                name="presetSelected"
+                (change)="setPresetValues()"
+              />
+              <datalist>
+                <option *ngFor="let preset of presets" [value]="preset.visibleName"></option>
+              </datalist>
+            </clr-datalist-container> -->
             <clr-input-container>
               <label for="visibleName">Field Visible Name:</label>
               <input clrInput placeholder="Issuer Name" [(ngModel)]="visibleName" name="visibleName" />
@@ -63,7 +79,7 @@
             <br />
             <clr-input-container>
               <label for="phText">Placeholder Text:</label>
-              <input clrInput placeholder="e.g. DBS Bank" [(ngModel)]="phText" name="phText" />
+              <input clrInput placeholder="e.g. DBS Bank" [(ngModel)]="phText" name="phText" style="min-width: 250px" />
             </clr-input-container>
 
             <br /><br />

@@ -20,8 +20,23 @@ export class AppComponent {
   presets: IPreset[] = [
     {
       visibleName: "Arranger Name",
-      uniqueName: "arrangeName",
+      uniqueName: "arrangerName",
       phText: "Enter Arranger Name Here",
+    },
+    {
+      visibleName: "Coupon Type",
+      uniqueName: "couponType",
+      phText: "Enter Coupon Type Here",
+    },
+    {
+      visibleName: "Issuer Name",
+      uniqueName: "issuerName",
+      phText: "Enter Issuer Name Here",
+    },
+    {
+      visibleName: "Issuer Region",
+      uniqueName: "issuerRegion",
+      phText: "Enter Issuer Region Here",
     },
   ];
 
@@ -65,7 +80,10 @@ export class AppComponent {
   }
 
   setPresetValues() {
-    this.presets.find(({ uniqueName }) => uniqueName === this.presetSelected);
+    let result = this.presets.find(({ visibleName }) => visibleName === this.presetSelected);
+    this.visibleName = result.visibleName;
+    this.uniqueName = result.uniqueName;
+    this.phText = result.phText;
   }
 
   createContentControl() {
