@@ -1,4 +1,4 @@
-<main class="ms-welcome__main" style="padding-left: 50px">
+<main class="ms-welcome__main">
   <header class="fx-banner-container ms-bgColor-neutralLighter">
     <img class="fx-banner" src="/assets/img.png" alt="Contoso" title="Contoso" />
     <!-- <h1 class="ms-font-su">Welcome</h1>-->
@@ -9,7 +9,7 @@
       <clr-tab-content *clrIfActive="true">
         <div class="fx-landing-container">
           <div class="fx-landing">
-            <p style="padding-bottom: 75px; margin: 0 50px">
+            <p style="max-width: 300px; padding-bottom: 50px">
               Welcome to FIX Marketplace Programme Editor. Please start by loading updated field values from the server,
               or by adding annotations into your document for other parties to fill.
             </p>
@@ -35,6 +35,21 @@
       <clr-tab-content *clrIfActive>
         <div class="tab-container">
           <div class="tab-card">
+            <!-- <clr-dropdown>
+              <button class="btn btn-sm btn-primary" clrDropdownTrigger>Select Preset</button>
+              <clr-dropdown-menu clrPosition="btm">
+                <div aria-label="Dropdown header Action 1" clrDropdownItem>Arranger Name</div>
+                <div aria-label="Dropdown header Action 2" clrDropdownItem>Coupon Type</div>
+                <div aria-label="Dropdown header Action 3" clrDropdownItem>Issuer Name</div>
+                <div aria-label="Dropdown header Action 4" clrDropdownItem>Issuer Region</div>
+              </clr-dropdown-menu>
+            </clr-dropdown> -->
+            <select clrSelect name="presetSelected" [(ngModel)]="presetSelected" (change)="setPresetValues()">
+              <option value="arrangerName">Arranger Name</option>
+              <option value="couponName">Coupon Type</option>
+              <option value="issuerName">Issuer Name</option>
+              <option value="issuerRegion">Issuer Region</option>
+            </select>
             <clr-input-container>
               <label for="visibleName">Field Visible Name:</label>
               <input clrInput placeholder="Issuer Name" [(ngModel)]="visibleName" name="visibleName" />

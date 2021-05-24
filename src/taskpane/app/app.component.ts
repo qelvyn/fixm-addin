@@ -15,6 +15,15 @@ export class AppComponent {
   visibleName: string = "";
   uniqueName: string = "";
   phText: string = "";
+  presetSelected: string = "";
+
+  presets: IPreset[] = [
+    {
+      visibleName: "Arranger Name",
+      uniqueName: "arrangeName",
+      phText: "Enter Arranger Name Here",
+    },
+  ];
 
   constructor() {}
   ngOnInit() {
@@ -53,6 +62,10 @@ export class AppComponent {
         console.log("Debug info: " + JSON.stringify(error.debugInfo));
       }
     });
+  }
+
+  setPresetValues() {
+    this.presets.find(({ uniqueName }) => uniqueName === this.presetSelected);
   }
 
   createContentControl() {
@@ -172,6 +185,12 @@ export class AppComponent {
       }
     });
   }
+}
+
+interface IPreset {
+  visibleName: string;
+  uniqueName: string;
+  phText: string;
 }
 
 //   async run() {
