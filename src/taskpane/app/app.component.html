@@ -1,35 +1,90 @@
-
 <main class="ms-welcome__main">
-    <clr-tabs>
-        <clr-tab>
-          <button clrTabLink>Form Fields</button>
-          <clr-tab-content *clrIfActive>
+  <header class="fx-banner-container ms-bgColor-neutralLighter">
+    <img class="fx-banner" src="/assets/img.png" alt="Contoso" title="Contoso" />
+    <!-- <h1 class="ms-font-su">Welcome</h1>-->
+  </header>
+  <clr-tabs>
+    <clr-tab>
+      <button class="tab-btn" clrTabLink>Welcome</button>
+      <clr-tab-content *clrIfActive="true">
+        <div class="fx-landing-container">
+          <div class="fx-landing">
+            <p style="padding-bottom: 75px; margin: 0 50px">
+              Welcome to FIX Marketplace Programme Editor. Please start by loading updated field values from the server,
+              or by adding annotations into your document for other parties to fill.
+            </p>
+            <hr />
+            <button class="btn btn-success" (click)="loadContentInControl()">Load fields value from server</button>
+            <hr />
+            <button class="btn btn-warning" (click)="clearContentInControl()">Clear all fields in selection</button>
+            <hr />
+            <button class="btn btn-sm btn-outline" (click)="insertSampleData()">Load sample data</button>
+          </div>
+        </div>
 
-            <p class="ms-font-l">Modify the source files, then click <b>Run</b>.</p>
-            <div role="button" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20" (click)="run()">
+        <!-- <p class="ms-font-l">Modify the source files, then click <b>Run</b>.</p> -->
+        <!-- <div role="button" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20" (click)="run()">
                 <span class="ms-Button-label">Run</span>
                 <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronRight"></i></span>
-            </div>
+            </div> -->
+      </clr-tab-content>
+    </clr-tab>
 
-          </clr-tab-content>
-        </clr-tab>
-        <clr-tab>
-          <button clrTabLink>Input Form</button>
-          <clr-tab-content *clrIfActive="true">
-            <form clrForm>
-                <clr-input-container>
-                  <label>Contract Number</label>
-                  <input clrInput placeholder="XXXX-XXXX-XXXXX" name="contractNumber" [(ngModel)]="contractNumber" />
-                </clr-input-container>
+    <clr-tab>
+      <button class="tab-btn" clrTabLink>Annotations</button>
+      <clr-tab-content *clrIfActive>
+        <div class="tab-container">
+          <div class="tab-card">
+            <clr-input-container>
+              <label for="visibleName">Field Visible Name:</label>
+              <input clrInput placeholder="Issuer Name" [(ngModel)]="visibleName" name="visibleName" />
+            </clr-input-container>
+            <br />
+            <clr-input-container>
+              <label for="uniqueName">Field Short Unique ID:</label>
+              <input clrInput placeholder="issuerName" [(ngModel)]="uniqueName" name="uniqueName" />
+              <clr-control-helper>Value to be Unique in document</clr-control-helper>
+            </clr-input-container>
+            <br />
+            <clr-input-container>
+              <label for="phText">Placeholder Text:</label>
+              <input clrInput placeholder="e.g. DBS Bank" [(ngModel)]="phText" name="phText" />
+            </clr-input-container>
 
-                <clr-input-container>
-                    <label>Issue Date</label>
-                    <input clrInput placeholder="dd/MM/yyyy" name="issueDate" [(ngModel)]="issueDate" />
-                  </clr-input-container>
+            <br /><br />
+            <button class="btn btn-primary" (click)="createContentControl()">Annotate field</button>
+            <br />
+            <button class="btn btn-sm btn-warning" (click)="clearAnnotationFields()">Clear Form</button>
+          </div>
+        </div>
+      </clr-tab-content>
+    </clr-tab>
 
-              </form>
-          </clr-tab-content>
-        </clr-tab>
-      </clr-tabs>
+    <clr-tab>
+      <button class="tab-btn" clrTabLink>Value Extraction</button>
+      <clr-tab-content *clrIfActive>
+        <div class="tab-container">
+          <!-- <clr-input-container> -->
 
+          <button class="btn btn-sm btn-primary" (click)="showContentInControl()">Show extracted data</button>
+          <br />
+          <div id="extractedFields"></div>
+          <!-- <hr /> -->
+          <button class="btn btn-sm btn-primary" (click)="exportContentInControl()">Export filled data as json</button>
+          <br />
+          <pre style="font-family: inherit; border: 0" id="exportedFields"></pre>
+
+          <!--
+            <label>Contract Number</label>
+            <input clrInput placeholder="XXXX-XXXX-XXXXX" name="contractNumber" [(ngModel)]="contractNumber" />
+          </clr-input-container>
+
+          <clr-input-container>
+            <label>Issue Date</label>
+            <input clrInput placeholder="dd/MM/yyyy" name="issueDate" [(ngModel)]="issueDate" />
+          </clr-input-container> -->
+        </div>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
 </main>
