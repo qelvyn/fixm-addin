@@ -16,7 +16,6 @@ export class AppComponent {
   uniqueName: string = "";
   phText: string = "";
   presetSelected: string = "";
-
   presets: IPreset[] = [
     {
       visibleName: "Arranger Name",
@@ -37,6 +36,61 @@ export class AppComponent {
       visibleName: "Issuer Region",
       uniqueName: "issuerRegion",
       phText: "Enter Issuer Region Here",
+    },
+    {
+      visibleName: "Program Currency",
+      uniqueName: "programCurrency",
+      phText: "Enter Program Currency Here",
+    },
+    {
+      visibleName: "Program Amount",
+      uniqueName: "programAmount",
+      phText: "Enter Program Amount Here",
+    },
+    {
+      visibleName: "Tenor",
+      uniqueName: "tenor",
+      phText: "Enter Tenor Here",
+    },
+    {
+      visibleName: "Product Type",
+      uniqueName: "productType",
+      phText: "Enter Product Type Here",
+    },
+    {
+      visibleName: "Product Type Short",
+      uniqueName: "productTypeShort",
+      phText: "Enter Product Type Short Here",
+    },
+    {
+      visibleName: "Issuer Rating",
+      uniqueName: "issuerRating",
+      phText: "Enter Issuer Rating Here",
+    },
+    {
+      visibleName: "Issuer Rating Org",
+      uniqueName: "issuerRatingOrg",
+      phText: "Enter Issuer Rating Org Here",
+    },
+    {
+      visibleName: "Principal Amount Currency",
+      uniqueName: "principalAmountCurrency",
+      phText: "Enter Principal Amount Currency Here",
+    },
+    {
+      visibleName: "Principal Amount",
+      uniqueName: "principalAmount",
+      phText: "Enter Principal Amount Here",
+    },
+    {
+      visibleName: "Pricing Date",
+      uniqueName: "pricingDate",
+      phText: "Enter Pricing Date Here",
+    },
+    {
+      visibleName: "Deposit Date",
+      uniqueName: "depositDate",
+      phText: "Enter Deposit Date Here",
     },
   ];
 

@@ -50,10 +50,22 @@
                 <!-- <option *ngFor="let preset of presets" [value]="preset.visibleName"></option> -->
                 <option value="Arranger Name" label="Arranger Name"></option>
                 <option value="Coupon Type" label="Coupon Type"></option>
+                <option value="Deposit Date" label="Deposit Date"></option>
                 <option value="Issuer Name" label="Issuer Name"></option>
+                <option value="Issuer Rating" label="Issuer Rating"></option>
                 <option value="Issuer Region" label="Issuer Region"></option>
+                <option value="Issuer Rating Org" label="Issuer Rating Org"></option>
+                <option value="Principal Amount" label="Principal Amount"></option>
+                <option value="Principal Amount Currency" label="Principal Amount Currency"></option>
+                <option value="Program Amount" label="Program Amount"></option>
+                <option value="Program Currency" label="Program Currency"></option>
+                <option value="Product Type" label="Product Type"></option>
+                <option value="Product Type Short" label="Product Type Short"></option>
+                <option value="Pricing Date" label="Pricing Date"></option>
+                <option value="Tenor" label="Tenor"></option>
               </select>
             </clr-select-container>
+            <br /><br />
             <!-- <clr-datalist-container>
               <input
                 clrDatalistInput
@@ -68,21 +80,33 @@
             </clr-datalist-container> -->
             <clr-input-container>
               <label for="visibleName">Field Visible Name:</label>
-              <input clrInput placeholder="Issuer Name" [(ngModel)]="visibleName" name="visibleName" />
+              <input
+                clrInput
+                placeholder="Issuer Name"
+                [(ngModel)]="visibleName"
+                name="visibleName"
+                style="min-width: 250px"
+              />
             </clr-input-container>
             <br />
             <clr-input-container>
               <label for="uniqueName">Field Short Unique ID:</label>
-              <input clrInput placeholder="issuerName" [(ngModel)]="uniqueName" name="uniqueName" />
+              <input
+                clrInput
+                placeholder="issuerName"
+                [(ngModel)]="uniqueName"
+                name="uniqueName"
+                style="min-width: 250px"
+              />
               <clr-control-helper>Value to be Unique in document</clr-control-helper>
             </clr-input-container>
             <br />
             <clr-input-container>
               <label for="phText">Placeholder Text:</label>
-              <input clrInput placeholder="e.g. DBS Bank" [(ngModel)]="phText" name="phText" style="min-width: 250px" />
+              <input clrInput placeholder="e.g. DBS Bank" [(ngModel)]="phText" name="phText" style="min-width: 300px" />
             </clr-input-container>
 
-            <br /><br />
+            <br /><br /><br />
             <button class="btn btn-primary" (click)="createContentControl()">Annotate field</button>
             <br />
             <button class="btn btn-sm btn-warning" (click)="clearAnnotationFields()">Clear Form</button>
@@ -103,7 +127,10 @@
           <!-- <hr /> -->
           <button class="btn btn-sm btn-primary" (click)="exportContentInControl()">Export filled data as json</button>
           <br />
-          <pre style="font-family: inherit; border: 0" id="exportedFields"></pre>
+          <pre
+            style="font-family: inherit; border: 0; max-width: 325px; overflow-wrap: break-word; white-space: pre-wrap"
+            id="exportedFields"
+          ></pre>
 
           <!--
             <label>Contract Number</label>
